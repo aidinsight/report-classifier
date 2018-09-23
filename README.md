@@ -8,6 +8,8 @@ Created for the IBM Call for Code Challenge.
 
 https://reliefweb.int/help/api
 
+https://www.ibm.com/watson/developercloud/language-translator/api/v2/curl.html?curl#service-endpoint
+
 ## Other Useful References
 
 http://write.flossmanuals.net/sahana-eden/index/
@@ -17,11 +19,15 @@ http://eden.sahanafoundation.org/wiki/DeveloperGuidelines/Basics
 
 http://eden.sahanafoundation.org/wiki/S3/S3Model/ComponentResources
 
-
+https://console.bluemix.net/docs/services/natural-language-classifier/getting-started.html#natural-language-classifier
 
 ## Usage
 
-lein run
+For data collector
+
+```lein run```
+
+will run for a while and generate CSV files classifier_[12].csv in the local directory.
 
 ## License
 
