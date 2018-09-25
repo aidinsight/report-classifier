@@ -110,6 +110,7 @@
   ([text max-length]
    (as-> text $
          (str/split $ #"\n")
+         (map str/trim $)
          (filter #(< 40 (count %) (inc max-length)) $)))
   ([text] (paragraphs text watson-max-fragment-length)))
 
