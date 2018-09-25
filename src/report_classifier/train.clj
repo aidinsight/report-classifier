@@ -36,8 +36,8 @@
 
 
   (def temp-config
-    {:username     "f495c701-f1c4-4d98-8db6-f0a55f244ed0"
-     :password     "x5q1fxhfP2dp"
+    {:username     "<username>"
+     :password     "<password>"
      :api-base-url "https://gateway.watsonplatform.net/natural-language-classifier/api"})
 
   (create-classifier temp-config "resources/classifier_1.csv" "ReliefWebClassifier1")
