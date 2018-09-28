@@ -1,6 +1,7 @@
-(ns report-classifier.train
+(ns report-classifier.watson
   (:require [cheshire.core :as ch]
-            [clj-http.client :as http]))
+            [clj-http.client :as http]
+            [cemerick.url :refer [url-encode]]))
 
 (defn- with-parsed-body [response]
   (update-in response [:body] ch/parse-string true))
@@ -18,10 +19,10 @@
 (defn create-classifier [{:keys [username password api-base-url]} csv-file-name name]
   (-> (http/post
         (str api-base-url "/v1/classifiers")
-        {:basic-auth [username password]
-         :multipart [{:name "training_metadata"
-                      :content (ch/generate-string {:language "en" :name name})}
-                     {:name "training_data" :content (clojure.java.io/file csv-file-name)}]
+        {:basic-auth       [username password]
+         :multipart        [{:name    "training_metadata"
+                             :content (ch/generate-string {:language "en" :name name})}
+                            {:name "training_data" :content (clojure.java.io/file csv-file-name)}]
          :throw-exceptions false})
       with-parsed-body))
 
@@ -31,6 +32,20 @@
         (str api-base-url "/v1/classifiers/" classifier-id)
         {:basic-auth [username password]})
       with-parsed-body))
+
+;; TODO Check that text is within maximum size of 2048 characters
+(defn classify [{:keys [username password api-base-url]} classifier-id text]
+  (let [url (str
+              api-base-url
+              "/v1/classifiers/"
+              classifier-id
+              "/classify?text="
+              (url-encode text))
+        _ (println "URL" url)]
+    (-> (http/get
+          url
+          {:basic-auth [username password]})
+        with-parsed-body)))
 
 (comment
 

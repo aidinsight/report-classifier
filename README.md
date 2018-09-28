@@ -8,26 +8,28 @@ Created for the IBM Call for Code Challenge.
 
 https://reliefweb.int/help/api
 
-https://www.ibm.com/watson/developercloud/language-translator/api/v2/curl.html?curl#service-endpoint
 
 ## Other Useful References
-
-http://write.flossmanuals.net/sahana-eden/index/
-
-http://eden.sahanafoundation.org/wiki/DeveloperGuidelines
-http://eden.sahanafoundation.org/wiki/DeveloperGuidelines/Basics
-
-http://eden.sahanafoundation.org/wiki/S3/S3Model/ComponentResources
 
 https://console.bluemix.net/docs/services/natural-language-classifier/getting-started.html#natural-language-classifier
 
 ## Usage
 
-For data collector
+1. Collect Data
 
-```lein run```
+```lein run -m report-classifier.collect```
 
 will run for a while and generate CSV files classifier_[12].csv in the local directory.
+
+2. Create Classifiers
+
+Use functions in report-classifier.watson to call the NLC API and create classifiers using the generated CSVs.
+
+3. Call Classifiers
+
+```lein run config.edn Add your text to classify here```
+
+Classifier will report clusters that made to the identified themes.
 
 ## License
 

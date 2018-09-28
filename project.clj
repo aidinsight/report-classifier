@@ -6,5 +6,6 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [cheshire "5.8.1"]
                  [clj-http "3.9.1"]
-                 [org.clojure/data.csv "0.1.4"]]
-  :main report-classifier.collect)
+                 [org.clojure/data.csv "0.1.4"]
+                 [com.cemerick/url "0.1.1"]]
+  :main report-classifier.core)
