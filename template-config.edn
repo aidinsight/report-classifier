@@ -1,0 +1,4 @@
+{:watson {:username     "<Watson API user name>"
+          :password     "<Watson API password>"
+          :api-base-url "<Watson base url provided "
+          :nlc-ids      ["<model IDs from Watson studio configuration page>"]}}

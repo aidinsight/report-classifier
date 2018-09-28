@@ -13,6 +13,15 @@ https://reliefweb.int/help/api
 
 https://console.bluemix.net/docs/services/natural-language-classifier/getting-started.html#natural-language-classifier
 
+### Configuration
+
+Copy template-config.edn to config.edn and populate the values.
+
+For the Natural Language Classifier, visit https://console.bluemix.net/dashboard/apps and find your 
+natural language classifier instance. Selecting that will give access to your credentials.
+
+(Note: for the Call for Code submission, configuration details will be provided separately.)
+
 ## Usage
 
 1. Collect Data
